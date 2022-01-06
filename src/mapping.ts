@@ -158,7 +158,7 @@ function handleAction(
         milk.action = splitString[0]
         milk.purchaseAmount = splitString[1]
         milk.purchasedToken = splitString[2]
-        milk.spentCheddar = BigInt.fromString(splitString[5])
+        milk.spentCheddar = splitString[5]
         milk.spendingToken = splitString[6]
       }
   
@@ -196,7 +196,7 @@ function handleAction(
         token.action = splitString[0]
         token.purchaseAmount = splitString[1]
         token.purchasedToken = splitString[2]
-        token.spentToken = BigInt.fromString(splitString[5])
+        token.spentToken = splitString[5]
         token.spendingToken = splitString[6]
       }
   

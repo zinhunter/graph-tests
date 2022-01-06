@@ -11,70 +11,6 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Account extends Entity {
-  constructor(id: string) {
-    super();
-    this.set("id", Value.fromString(id));
-
-    this.set("signerId", Value.fromString(""));
-    this.set("withdrawCrops", Value.fromStringArray(new Array(0)));
-    this.set("mintCallbacks", Value.fromStringArray(new Array(0)));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(id != null, "Cannot save Account entity without an ID");
-    if (id) {
-      assert(
-        id.kind == ValueKind.STRING,
-        "Cannot save Account entity with non-string ID. " +
-          'Considering using .toHex() to convert the "id" to a string.'
-      );
-      store.set("Account", id.toString(), this);
-    }
-  }
-
-  static load(id: string): Account | null {
-    return changetype<Account | null>(store.get("Account", id));
-  }
-
-  get id(): string {
-    let value = this.get("id");
-    return value!.toString();
-  }
-
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
-  }
-
-  get signerId(): string {
-    let value = this.get("signerId");
-    return value!.toString();
-  }
-
-  set signerId(value: string) {
-    this.set("signerId", Value.fromString(value));
-  }
-
-  get withdrawCrops(): Array<string> {
-    let value = this.get("withdrawCrops");
-    return value!.toStringArray();
-  }
-
-  set withdrawCrops(value: Array<string>) {
-    this.set("withdrawCrops", Value.fromStringArray(value));
-  }
-
-  get mintCallbacks(): Array<string> {
-    let value = this.get("mintCallbacks");
-    return value!.toStringArray();
-  }
-
-  set mintCallbacks(value: Array<string>) {
-    this.set("mintCallbacks", Value.fromStringArray(value));
-  }
-}
-
 export class Draw extends Entity {
   constructor(id: string) {
     super();
@@ -1192,20 +1128,20 @@ export class BuyMilkCheddar extends Entity {
     }
   }
 
-  get spentCheddar(): BigInt | null {
+  get spentCheddar(): string | null {
     let value = this.get("spentCheddar");
     if (!value || value.kind == ValueKind.NULL) {
       return null;
     } else {
-      return value.toBigInt();
+      return value.toString();
     }
   }
 
-  set spentCheddar(value: BigInt | null) {
+  set spentCheddar(value: string | null) {
     if (!value) {
       this.unset("spentCheddar");
     } else {
-      this.set("spentCheddar", Value.fromBigInt(<BigInt>value));
+      this.set("spentCheddar", Value.fromString(<string>value));
     }
   }
 
@@ -1531,20 +1467,20 @@ export class BuyTokens extends Entity {
     }
   }
 
-  get spentToken(): BigInt | null {
+  get spentToken(): string | null {
     let value = this.get("spentToken");
     if (!value || value.kind == ValueKind.NULL) {
       return null;
     } else {
-      return value.toBigInt();
+      return value.toString();
     }
   }
 
-  set spentToken(value: BigInt | null) {
+  set spentToken(value: string | null) {
     if (!value) {
       this.unset("spentToken");
     } else {
-      this.set("spentToken", Value.fromBigInt(<BigInt>value));
+      this.set("spentToken", Value.fromString(<string>value));
     }
   }
 
