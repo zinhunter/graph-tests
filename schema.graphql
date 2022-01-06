@@ -1,31 +1,104 @@
 type Account @entity {
   id: ID!
   signerId: String!
-  withdrawCrop: [WithdrawCrop!]!
-  transfers: [Transfer!]!
+  withdrawCrops: [WithdrawCrop!]!
+  mintCallbacks: [MintCallback!]!
+}
+
+type Draw @entity {
+  id: ID!
+  blockTime: BigInt
+  blockHeight: BigInt
+  blockHash: String
+  predecessorId: String
+  receiverId: String
+  signerId: String
+  signerPublicKey: String
+  gasBurned: BigInt
+  tokensBurned: BigInt
+  outcomeId: String
+  executorId: String
+  outcomeBlockHash: String
+  log: String
 }
 
 type WithdrawCrop @entity {
   id: ID!
-  output: String
-  action: String
-  amount: BigInt
   blockTime: BigInt
   blockHeight: BigInt
   blockHash: String
-  token: String
+  predecessorId: String
   receiverId: String
+  signerId: String
+  signerPublicKey: String
+  gasBurned: BigInt
+  tokensBurned: BigInt
+  outcomeId: String
+  executorId: String
+  outcomeBlockHash: String
+  log: String
+}
+
+type MintCallback @entity {
+  id: ID!
+  blockTime: BigInt
+  blockHeight: BigInt
+  blockHash: String
+  predecessorId: String
+  receiverId: String
+  signerId: String
+  signerPublicKey: String
+  gasBurned: BigInt
+  tokensBurned: BigInt
+  outcomeId: String
+  executorId: String
+  outcomeBlockHash: String
+  log: String
+  receiver: String
+  amount: BigInt
   memo: String
 }
-type Transfer @entity {
+
+type BuyMilkCheddar @entity {
   id: ID!
-  output: String
-  action: String
-  amount: BigInt
-  transferFrom: String
-  transferTo: String
-  memo: String
   blockTime: BigInt
   blockHeight: BigInt
   blockHash: String
+  predecessorId: String
+  receiverId: String
+  signerId: String
+  signerPublicKey: String
+  gasBurned: BigInt
+  tokensBurned: BigInt
+  outcomeId: String
+  executorId: String
+  outcomeBlockHash: String
+  log: String
+  action: String
+  purchaseAmount: String
+  purchasedToken: String
+  spentCheddar: BigInt
+  spendingToken: String
+}
+
+type BuyTokens @entity {
+  id: ID!
+  blockTime: BigInt
+  blockHeight: BigInt
+  blockHash: String
+  predecessorId: String
+  receiverId: String
+  signerId: String
+  signerPublicKey: String
+  gasBurned: BigInt
+  tokensBurned: BigInt
+  outcomeId: String
+  executorId: String
+  outcomeBlockHash: String
+  log: String
+  action: String
+  purchaseAmount: String
+  purchasedToken: String
+  spentToken: BigInt
+  spendingToken: String
 }
