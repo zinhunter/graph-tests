@@ -1,30 +1,54 @@
 type Account @entity {
   id: ID!
   signerId: String!
-  swap: [Swap!]!
-  liquidity: [AddLiquidity!]!
+  withdrawCrop: [WithdrawCrop!]!
+  transfers: [Transfer!]!
 }
 
-type Swap @entity {
+type WithdrawCrop @entity {
   id: ID!
   output: String
   action: String
-  blocktime: BigInt
-  firstTokenAmount: BigInt
-  firstToken: String
-  secondTokenAmount: BigInt
-  secondToken: String
+  amount: BigInt
+  blockTime: BigInt
+  blockHeight: BigInt
+  blockHash: String
+  token: String
+  receiverId: String
+  memo: String
 }
-
-type AddLiquidity @entity {
+type Transfer @entity {
   id: ID!
   output: String
-  blocktime: BigInt
-  functionCalled: String
-  functionAction: String
-  firstPoolAmount: BigInt
-  firstPool: String
-  secondPoolAmount: BigInt
-  secondPool: String
-  sharesMinted: BigInt
+  action: String
+  amount: BigInt
+  transferFrom: String
+  transferTo: String
+  memo: String
+  blockTime: BigInt
+  blockHeight: BigInt
+  blockHash: String
 }
+# type Swap @entity {
+#   id: ID!
+#   output: String
+#   action: String
+#   blocktime: BigInt
+#   firstTokenAmount: BigInt
+#   firstToken: String
+#   secondTokenAmount: BigInt
+#   secondToken: String
+# }
+
+# type AddLiquidity @entity {
+#   id: ID!
+#   output: String
+#   blocktime: BigInt
+#   functionCalled: String
+#   functionAction: String
+#   firstPoolAmount: BigInt
+#   firstPool: String
+#   secondPoolAmount: BigInt
+#   secondPool: String
+#   sharesMinted: BigInt
+# }

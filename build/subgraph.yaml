@@ -8,15 +8,15 @@ dataSources:
     name: receipts
     network: near-mainnet
     source:
-      account: v2.ref-finance.near
-      startBlock: 45752813
+      account: token.cheddar.near
+      startBlock: 53986186
     mapping:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: receipts/receipts.wasm
       entities:
         - Account
-        - Swap
-        - AddLiquidity
+        - WithdrawCrop
+        - Transfer
       receiptHandlers:
         - handler: handleReceipt

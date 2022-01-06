@@ -8,15 +8,15 @@ dataSources:
     name: receipts # could also be blocks
     network: near-mainnet # currently only near-mainnet is available
     source:
-      account: v2.ref-finance.near # contract account you want to pull data from
-      startBlock: 45752813 # starting block on near-mainnet for indexing
+      account: token.cheddar.near # contract account you want to pull data from
+      startBlock: 53986186 # starting block on near-mainnet for indexing
     mapping:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mapping.ts
       entities:
         - Account # the example entity in the schema.graphql file
-        - Swap # example log entity in the schema.graphql file
-        - AddLiquidity
+        - WithdrawCrop
+        - Transfer
       receiptHandlers:
         - handler: handleReceipt # name of the receipt handler
