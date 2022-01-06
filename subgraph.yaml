@@ -1,6 +1,6 @@
 specVersion: 0.0.4
-description: Ref Finance # the name of the subgraph
-repository: https://github.com/VitalPointAI/near-subgraph-template.git # repo where subgraph project is stored
+description: Cheddar Token # the name of the subgraph
+repository: https://github.com/VitalPointAI/subgraph-cheddar-p2.git # repo where subgraph project is stored
 schema:
   file: ./schema.graphql
 dataSources:
