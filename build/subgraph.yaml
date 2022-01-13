@@ -1,24 +1,21 @@
 specVersion: 0.0.4
-description: Cheddar Farm Draw
-repository: https://github.com/VitalPointAI/subgraph-cheddar-farmdraw.git
+description: Guilds Directory
+repository: https://github.com/VitalPointAI/subgraph-guilds-directory.git
 schema:
   file: schema.graphql
 dataSources:
   - kind: near
     name: receipts
-    network: near-mainnet
+    network: near-testnet
     source:
-      account: farm-draw.cheddar.near
-      startBlock: 56551580
+      account: v3.guilds_tests.testnet
+      startBlock: 76803495
     mapping:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: receipts/receipts.wasm
       entities:
-        - Draw
-        - WithdrawCrop
-        - MintCallback
-        - BuyMilkCheddar
-        - BuyTokens
+        - Member
+        - Guild
       receiptHandlers:
         - handler: handleReceipt

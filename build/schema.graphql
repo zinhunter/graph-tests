@@ -1,4 +1,4 @@
-type Draw @entity {
+type Member @entity {
   id: ID!
   blockTime: BigInt
   blockHeight: BigInt
@@ -13,9 +13,11 @@ type Draw @entity {
   executorId: String
   outcomeBlockHash: String
   log: String
+  member: String
+  guild: String
 }
 
-type WithdrawCrop @entity {
+type Guild @entity {
   id: ID!
   blockTime: BigInt
   blockHeight: BigInt
@@ -30,68 +32,5 @@ type WithdrawCrop @entity {
   executorId: String
   outcomeBlockHash: String
   log: String
-}
-
-type MintCallback @entity {
-  id: ID!
-  blockTime: BigInt
-  blockHeight: BigInt
-  blockHash: String
-  predecessorId: String
-  receiverId: String
-  signerId: String
-  signerPublicKey: String
-  gasBurned: BigInt
-  tokensBurned: BigInt
-  outcomeId: String
-  executorId: String
-  outcomeBlockHash: String
-  log: String
-  receiver: String
-  amount: BigInt
-  memo: String
-}
-
-type BuyMilkCheddar @entity {
-  id: ID!
-  blockTime: BigInt
-  blockHeight: BigInt
-  blockHash: String
-  predecessorId: String
-  receiverId: String
-  signerId: String
-  signerPublicKey: String
-  gasBurned: BigInt
-  tokensBurned: BigInt
-  outcomeId: String
-  executorId: String
-  outcomeBlockHash: String
-  log: String
-  action: String
-  purchaseAmount: String
-  purchasedToken: String
-  spentCheddar: String
-  spendingToken: String
-}
-
-type BuyTokens @entity {
-  id: ID!
-  blockTime: BigInt
-  blockHeight: BigInt
-  blockHash: String
-  predecessorId: String
-  receiverId: String
-  signerId: String
-  signerPublicKey: String
-  gasBurned: BigInt
-  tokensBurned: BigInt
-  outcomeId: String
-  executorId: String
-  outcomeBlockHash: String
-  log: String
-  action: String
-  purchaseAmount: String
-  purchasedToken: String
-  spentToken: String
-  spendingToken: String
+  guild: String
 }

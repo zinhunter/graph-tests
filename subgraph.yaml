@@ -1,24 +1,21 @@
 specVersion: 0.0.4
-description: Cheddar Farm Draw # the name of the subgraph
-repository: https://github.com/VitalPointAI/subgraph-cheddar-farmdraw.git # repo where subgraph project is stored
+description: Guilds Directory # the name of the subgraph
+repository: https://github.com/VitalPointAI/subgraph-guilds-directory.git # repo where subgraph project is stored
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: near
     name: receipts # could also be blocks
-    network: near-mainnet # currently only near-mainnet is available
+    network: near-testnet
     source:
-      account: farm-draw.cheddar.near # contract account you want to pull data from
-      startBlock: 56551580 # starting block on near-mainnet for indexing
+      account: v3.guilds_tests.testnet # contract account you want to pull data from
+      startBlock: 76803495 # starting block on near-mainnet for indexing
     mapping:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mapping.ts
       entities:
-        - Draw
-        - WithdrawCrop
-        - MintCallback
-        - BuyMilkCheddar
-        - BuyTokens
+        - Member
+        - Guild
       receiptHandlers:
         - handler: handleReceipt # name of the receipt handler

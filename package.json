@@ -1,5 +1,5 @@
 {
-  "name": "cheddar-farmdraw-subgraph",
+  "name": "guilds-directory-subgraph",
   "author": "Aaron Luhning",
   "version": "0.1.0",
   "repository": "",
@@ -7,7 +7,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy aluhning/cheddar-farmdraw --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/"
+    "deploy": "graph deploy aluhning/guilds-directory --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.25.1",
