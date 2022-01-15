@@ -1,6 +1,6 @@
 specVersion: 0.0.4
-description: Guilds Directory # the name of the subgraph
-repository: https://github.com/VitalPointAI/subgraph-guilds-directory.git # repo where subgraph project is stored
+description: Guilds # the name of the subgraph
+repository: https://github.com/zinhunter/graph-tests.git # repo where subgraph project is stored
 schema:
   file: ./schema.graphql
 dataSources:

@@ -1,6 +1,6 @@
 specVersion: 0.0.4
-description: Guilds Directory
-repository: https://github.com/VitalPointAI/subgraph-guilds-directory.git
+description: Guilds
+repository: https://github.com/zinhunter/graph-tests.git
 schema:
   file: schema.graphql
 dataSources:
